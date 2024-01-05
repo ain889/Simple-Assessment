@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Display Table 1 and Table 2</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 40%;
+      margin: 20px;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 5px;
+      text-align: left;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <table>
+    <caption>Table 1</caption>
+    <tr>
+      <th>Index</th>
+      <th>Value</th>
+    </tr>
+    <script>
+      const table1Data = [
+        ["A1", 41],
+        ["A2", 18],
+        ["A3", 21],
+        ["A4", 63],
+        ["A5", 2],
+        ["A6", 53],
+        ["A7", 5],
+        ["A8", 57],
+        ["A9", 60],
+        ["A10", 93],
+        ["A11", 28],
+        ["A12", 3],
+        ["A13", 90],
+        ["A14", 39],
+        ["A15", 80],
+        ["A16", 88],
+        ["A17", 49],
+        ["A18", 60],
+        ["A19", 26],
+        ["A20", 28]
+      ].map(([index, value]) => [index, parseInt(value)]);
+
+      // Display Table 1
+      table1Data.forEach(row => {
+        document.write(`<tr><td>${row[0]}</td><td>${row[1]}</td></tr>`);
+      });
+    </script>
+  </table>
+
+
+  <table>
+    <caption>Table 2</caption>
+    <tr>
+      <th>Category</th>
+      <th>Value</th>
+    </tr>
+    <script>
+      // Display Table 2 with calculated answers
+      const alphaValue = table1Data.find(row => row[0] === "A5")[1] + table1Data.find(row => row[0] === "A20")[1];
+      const betaValue = table1Data.find(row => row[0] === "A15")[1] / table1Data.find(row => row[0] === "A7")[1];
+      const charlieValue = table1Data.find(row => row[0] === "A13")[1] * table1Data.find(row => row[0] === "A12")[1];
+
+      document.write(`
+        <tr>
+          <td>Alpha</td>
+          <td>${alphaValue}</td>
+        </tr>
+        <tr>
+          <td>Beta</td>
+          <td>${betaValue}</td>
+        </tr>
+        <tr>
+          <td>Charlie</td>
+          <td>${charlieValue}</td>
+        </tr>
+      `);
+    </script>
+  </table>
+
+</body>
+</html>
